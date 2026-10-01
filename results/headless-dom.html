@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>unitworth — true unit price comparison</title>
+  <meta name="description" content="Compare real unit prices across pack sizes locally in your browser. No server, no tracking.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>unitworth</h1>
+      <p class="tagline">Which package actually costs least per unit? Paste options, get the answer. 100% local.</p>
+    </header>
+
+    <section class="toolbar" aria-label="table actions">
+      <button id="add-row" type="button">+ Add row</button>
+      <button id="load-example" type="button">Load example</button>
+      <button id="copy-tsv" type="button">Copy as TSV</button>
+      <button id="clear" type="button">Clear</button>
+    </section>
+
+    <section aria-label="comparison table">
+      <table id="table">
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>Packs</th>
+            <th>Size</th>
+            <th>Unit</th>
+            <th>Price</th>
+            <th>Per unit</th>
+            <th aria-label="delete"></th>
+          </tr>
+        </thead>
+        <tbody id="rows"><tr class=""><td><input data-field="label"></td><td><input data-field="packs" inputmode="decimal"></td><td><input data-field="size" inputmode="decimal"></td><td><input data-field="unit" inputmode="decimal" placeholder="ml/L/g/kg"></td><td><input data-field="price" inputmode="decimal"></td><td class="verdict">$1.49 / L</td><td><button class="delete" aria-label="delete row">×</button></td></tr><tr><td><input data-field="label"></td><td><input data-field="packs" inputmode="decimal"></td><td><input data-field="size" inputmode="decimal"></td><td><input data-field="unit" inputmode="decimal" placeholder="ml/L/g/kg"></td><td><input data-field="price" inputmode="decimal"></td><td class="verdict">$1.70 / L</td><td><button class="delete" aria-label="delete row">×</button></td></tr><tr class="best"><td><input data-field="label"></td><td><input data-field="packs" inputmode="decimal"></td><td><input data-field="size" inputmode="decimal"></td><td><input data-field="unit" inputmode="decimal" placeholder="ml/L/g/kg"></td><td><input data-field="price" inputmode="decimal"></td><td class="verdict">$1.37 / L</td><td><button class="delete" aria-label="delete row">×</button></td></tr><tr class="best"><td><input data-field="label"></td><td><input data-field="packs" inputmode="decimal"></td><td><input data-field="size" inputmode="decimal"></td><td><input data-field="unit" inputmode="decimal" placeholder="ml/L/g/kg"></td><td><input data-field="price" inputmode="decimal"></td><td class="verdict">$2.99 / kg</td><td><button class="delete" aria-label="delete row">×</button></td></tr><tr><td><input data-field="label"></td><td><input data-field="packs" inputmode="decimal"></td><td><input data-field="size" inputmode="decimal"></td><td><input data-field="unit" inputmode="decimal" placeholder="ml/L/g/kg"></td><td><input data-field="price" inputmode="decimal"></td><td class="verdict">$3.49 / kg</td><td><button class="delete" aria-label="delete row">×</button></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="output" aria-label="results">
+      <h2>Ranking <span class="hint">(cheapest per unit first, per family)</span></h2>
+      <pre id="ranking" aria-live="polite">— volume —
+     $1.37 / L  Milk 2 x 1.5 L
+     $1.49 / L  Milk 1 L
+     $1.70 / L  Milk 500 ml
+— weight —
+    $2.99 / kg  Rice 1 kg
+    $3.49 / kg  Rice 4 x 250 g</pre>
+      <p id="insight" class="insight" aria-live="polite">volume: "Milk 500 ml" costs 24.4% more per unit than "Milk 2 x 1.5 L". weight: "Rice 4 x 250 g" costs 16.7% more per unit than "Rice 1 kg".</p>
+    </section>
+
+    <footer>
+      <p>No network. No storage. No third-party code. View source: it's four files.</p>
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
+
+
+</body></html>

@@ -1,0 +1,13 @@
+{
+  "name": "unitworth",
+  "version": "1.0.0",
+  "description": "Zero-install local web app for true unit-price comparison across pack sizes",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.js\"",
+    "serve": "node -e \"const{createServer,root}=require('http');\" 2>/dev/null || python3 -m http.server 8080"
+  },
+  "keywords": ["unit-price", "shopping", "comparison", "offline-first"],
+  "license": "MIT"
+}
